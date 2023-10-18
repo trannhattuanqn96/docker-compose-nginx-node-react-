@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  nginx:
+    depends_on:
+      - api
+      - client
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "3050:80"
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./api
+    volumes:
+      # - ./api:/app
+      - /app/node_modules
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    volumes:
+      - ./client:/app
+      - /app/node_modules
