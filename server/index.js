@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send(' 3 4 5 6a tua asdan tran nhat 1234!')
+  res.send('đã thay đổi !')
 })
 
 app.get('/abc', (req, res) => {
